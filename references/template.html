@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>徐嘉 — Data Engineer / NLP Research</title>
+    <title>张三 — 后端开发 · Go / 云原生</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -323,19 +323,19 @@
     <!-- HEADER -->
     <header class="header">
         <div class="photo">
-            <img src="照片.jpg" alt="徐嘉">
+            <img src="照片.jpg" alt="张三">
         </div>
         <div class="header-info">
-            <h1>徐 嘉</h1>
-            <div class="subtitle">数据工程 · NLP 研究</div>
+            <h1>张 三</h1>
+            <div class="subtitle">后端开发 · Go / 云原生</div>
             <div class="contact-row">
-                <span>156 1104 2157</span>
+                <span>138-0000-0000</span>
                 <span class="sep">|</span>
-                <a href="mailto:pingtianhechuan@gmail.com">pingtianhechuan@gmail.com</a>
+                <a href="mailto:zhangsan@example.com">zhangsan@example.com</a>
                 <span class="sep">|</span>
-                <a href="https://github.com/1EchA" target="_blank">github.com/1EchA</a>
+                <a href="https://github.com/zhangsan-dev" target="_blank">github.com/zhangsan-dev</a>
             </div>
-            <div style="margin-top:14px; font-size:0.86rem; color:var(--text-light); line-height:1.65;">数据科学与大数据技术本科在读。具备百万级数据入库、清洗与治理的全流程实习经验，熟练使用 Python、SQL 与 PostgreSQL。以第一作者身份主导 NLP 学术论文，独立运营 GitHub 开源项目 300+ Stars。</div>
+            <div style="margin-top:14px; font-size:0.86rem; color:var(--text-light); line-height:1.65;">软件工程本科在读，主攻后端与分布式系统方向。具备一线互联网公司实习经验，独立设计并落地过万级 QPS 的微服务模块。主导 2 个开源项目（累计 500+ Stars），熟悉 Go、Kubernetes、消息队列与数据库优化。</div>
         </div>
     </header>
 
@@ -344,66 +344,67 @@
 
         <!-- 左栏：经历 -->
         <section class="main-col">
-            <div class="section-title">实习 & 研究经历</div>
+            <div class="section-title">实习 & 项目经历</div>
 
             <div class="exp-item">
                 <div class="exp-head">
-                    <span class="exp-title">数据工程师实习生</span>
-                    <span class="exp-date">2025.12 — 2026.02</span>
+                    <span class="exp-title">后端开发实习生</span>
+                    <span class="exp-date">2025.06 — 2025.09</span>
                 </div>
-                <div class="exp-org">中国标准化研究院 · 人工智能标准化研究所</div>
+                <div class="exp-org">字节跳动 · 基础架构部</div>
                 <ul class="exp-bullets">
-                    <li><strong>数据清洗与标准号治理</strong>：基于 PostgreSQL 与 DBeaver 编写多层正则清洗脚本，对标准号、起草单位等关键字段进行规范化处理，覆盖 OCR 噪声过滤、实体提取、分隔符归一与去重，显著降低脏数据率</li>
-                    <li><strong>数据入库与关联匹配</strong>：基于清洗后的标准号独立完成 <span class="metric">160 万+</span> 条外部数据的入库，涵盖多语言标准正文与修改单导入，完成文件去重与存量校验，有效提升关联匹配成功率与数据覆盖率</li>
-                    <li><strong>支撑 AI 预训练</strong>：产出的高质量结构化数据直接服务于内部生成式 AI 预训练与"标准知识图谱"构建</li>
+                    <li><strong>微服务网关性能优化</strong>：基于 Go 重构 API 网关路由模块，引入对象池与零拷贝技术，将单节点吞吐从 <span class="metric">12K QPS</span> 提升至 <span class="metric">38K QPS</span>，P99 延迟下降 62%</li>
+                    <li><strong>分布式链路追踪</strong>：使用 OpenTelemetry + Jaeger 搭建全链路追踪体系，覆盖 <span class="metric">200+</span> 个微服务节点，故障定位时间从 30 分钟缩短至 5 分钟</li>
+                    <li><strong>灰度发布流水线</strong>：设计基于 Istio + Argo Rollouts 的自动化灰度发布方案，支持按百分比、地域、用户画像多维分流</li>
                 </ul>
             </div>
 
             <div class="exp-item">
                 <div class="exp-head">
-                    <span class="exp-title">TARR: 免训练中文拼写纠错框架</span>
-                    <span class="exp-date">2025.10 — 至今</span>
+                    <span class="exp-title"><a href="https://github.com/zhangsan-dev/dtask" target="_blank" style="color:inherit;text-decoration:none;">DTask: 分布式任务调度引擎</a></span>
+                    <span class="exp-date">480+ ★ · 60+ Forks</span>
                 </div>
-                <div class="exp-org">第一作者 · 即将投递</div>
+                <div class="exp-org">开源项目 · Go / etcd / Redis</div>
                 <ul class="exp-bullets">
-                    <li><strong>研发免训练中文纠错框架</strong>：提出 TARR 两阶段架构（确定性候选生成 + 类型感知可靠性重排），实现无需训练、无需提示词的端到端中文拼写纠错</li>
-                    <li><strong>多领域基准全面领先</strong>：在 SIGHAN15、LEMON、ECSpell、CSCD-NS、MCSCSet 等 <span class="metric">5 个</span>跨领域基准数据集上显著提升 F1 且维持极低误报率</li>
-                    <li><strong>工程级推理加速</strong>：设计缓存加速方案，在纠错质量无损前提下实现推理端 <span class="metric">20x+</span> 延迟降低</li>
+                    <li><strong>轻量级调度核心</strong>：实现基于 etcd 的分布式一致性选举与任务分片，支持 Cron、依赖 DAG 和失败重试，单集群调度 <span class="metric">10 万任务/分钟</span></li>
+                    <li><strong>多租户隔离与配额</strong>：基于 Redis Lua 脚本实现令牌桶限流，高并发场景下配额误差率低于 <span class="metric">0.5%</span></li>
+                    <li><strong>可观测性面板</strong>：集成 Prometheus + Grafana，提供任务耗时分布、失败率趋势和节点负载热力图</li>
                 </ul>
             </div>
 
             <div class="exp-item">
                 <div class="exp-head">
-                    <span class="exp-title"><a href="https://github.com/1EchA/Predicting-medals" target="_blank" style="color:inherit;text-decoration:none;">GBRT 奥运奖牌数预测与归因分析</a></span>
-                    <span class="exp-date">2025.02 — 2025.03</span>
+                    <span class="exp-title"><a href="https://github.com/zhangsan-dev/logstream" target="_blank" style="color:inherit;text-decoration:none;">LogStream: 实时日志分析平台</a></span>
+                    <span class="exp-date">2024.11 — 2025.03</span>
                 </div>
-                <div class="exp-org">数据建模 · 个人项目</div>
+                <div class="exp-org">全栈项目 · Go + Kafka + React</div>
                 <ul class="exp-bullets">
-                    <li><strong>奖牌数预测建模</strong>：基于历届奥运历史数据构建 GBRT 模型预测 2028 洛杉矶奥运会各国奖牌数，测试集 R² = 0.98，交叉验证稳健</li>
-                    <li><strong>关键因子归因分析</strong>：发现东道主效应与历史动量为最强预测因子，性别均衡度与现代奖牌表现正相关，并通过可视化报告呈现完整归因结果</li>
+                    <li><strong>流式日志处理</strong>：基于 Kafka + Go 消费者组构建实时采集管道，峰值吞吐 <span class="metric">50MB/s</span>，支持正则、JSON Path、Grok 模式动态解析</li>
+                    <li><strong>智能告警引擎</strong>：滑动窗口 + 同比环比异常检测，支持钉钉/飞书/邮件多渠道推送，告警延迟 <span class="metric">3 秒</span>以内</li>
                 </ul>
             </div>
 
             <div class="exp-item">
                 <div class="exp-head">
-                    <span class="exp-title"><a href="https://github.com/1EchA/GAI-in-social-science" target="_blank" style="color:inherit;text-decoration:none;">AI × 社会科学文献趋势分析综述</a></span>
-                    <span class="exp-date">2024.09 — 2025.01</span>
+                    <span class="exp-title">暑期实训生</span>
+                    <span class="exp-date">2024.07 — 2024.08</span>
                 </div>
-                <div class="exp-org">数据分析 · 个人项目</div>
+                <div class="exp-org">阿里云 · 云原生应用平台</div>
                 <ul class="exp-bullets">
-                    <li><strong>大规模文献数据挖掘</strong>：基于 Web of Science 核心库 <span class="metric">7011</span> 条文献数据，使用 LDA 主题建模提取 7 大核心研究主题，重构 AI 与社会科学的融合图谱</li>
-                    <li><strong>多维可视化分析</strong>：综合运用 DataMapPlot、Voronoi Treemap、Parallel Tag Clouds 等工具，呈现主题聚类密度、学科权重分布与时间演化路径</li>
+                    <li><strong>Serverless 冷启动优化</strong>：通过镜像懒加载 + 快照预热将 Java 运行时冷启动从 <span class="metric">2.8s</span> 降至 <span class="metric">0.6s</span></li>
+                    <li><strong>CI/CD 模板库</strong>：编写 <span class="metric">15+</span> 套 Pipeline 模板覆盖 Go/Java/Node.js，团队采纳率超 80%</li>
                 </ul>
             </div>
+
             <div class="exp-item">
                 <div class="exp-head">
-                    <span class="exp-title"><a href="https://github.com/1EchA/how-to-vibecoding" target="_blank" style="color:inherit;text-decoration:none;">how-to-vibecoding 开源教程</a></span>
-                    <span class="exp-date">300+ ★ · 25+ Forks</span>
+                    <span class="exp-title"><a href="https://github.com/zhangsan-dev/raft-kv" target="_blank" style="color:inherit;text-decoration:none;">RaftKV: 分布式 KV 存储引擎</a></span>
+                    <span class="exp-date">2024.03 — 2024.06</span>
                 </div>
-                <div class="exp-org">独立开源项目 · GitHub</div>
+                <div class="exp-org">课程项目 · Go / Raft / RocksDB</div>
                 <ul class="exp-bullets">
-                    <li><strong>构建全链路教程体系</strong>：独立撰写“基础篇 + 进阶篇（三篇）+ 精选工具推荐篇”共 5 篇系统教程，覆盖 MCP、Skills、Agent 分工治理等 AI 编程核心生态</li>
-                    <li><strong>开源社区影响力</strong>：面向 AI 编程入门进阶场景，GitHub 快速积累 <span class="metric">300+ Stars / 25+ Forks</span></li>
+                    <li><strong>Raft 共识协议</strong>：从零实现 Leader 选举、日志复制与快照机制，通过 Jepsen 风格的网络分区与节点宕机测试，保证线性一致性读写</li>
+                    <li><strong>存储引擎</strong>：基于 RocksDB + WAL 实现持久化层，单节点写入吞吐 <span class="metric">8 万 ops/s</span>，支持范围扫描与前缀查询</li>
                 </ul>
             </div>
 
@@ -414,30 +415,30 @@
         <aside class="sidebar">
             <div>
                 <div class="section-title">教育背景</div>
-                <span class="edu-school">中国传媒大学</span>
-                <span class="edu-major">数据科学与大数据技术</span>
-                <span class="edu-period">2023.09 — 2027</span>
-                <span class="edu-period" style="margin-top:6px">CET-4 / CET-6 通过</span>
+                <span class="edu-school">某某大学</span>
+                <span class="edu-major">软件工程 · 本科</span>
+                <span class="edu-period">2022.09 — 2026.06</span>
+                <span class="edu-period" style="margin-top:6px">GPA 3.7 / 4.0 · CET-6 580</span>
             </div>
 
             <div>
                 <div class="section-title">核心课程</div>
-                <span class="skill-items">Python、C/C++、数据结构与算法、概率统计、数据库原理、机器学习、数据建模、回归分析</span>
+                <span class="skill-items">数据结构与算法、操作系统、计算机网络、数据库系统、分布式系统、编译原理</span>
             </div>
 
             <div>
                 <div class="section-title">技术栈</div>
                 <div class="skill-group">
-                    <span class="skill-label">数据工程</span>
-                    <span class="skill-items">Python, Pandas, NumPy, PostgreSQL, DBeaver, Regex, Excel, ETL</span>
+                    <span class="skill-label">后端 & 语言</span>
+                    <span class="skill-items">Go, Java, Python, gRPC, Protobuf, Gin, Spring Boot</span>
                 </div>
                 <div class="skill-group">
-                    <span class="skill-label">算法 & LLM</span>
-                    <span class="skill-items">NLP, Ensemble Learning, GBRT, LDA, TF-IDF, Prompt Engineering, Scikit‑learn</span>
+                    <span class="skill-label">云原生 & 中间件</span>
+                    <span class="skill-items">Kubernetes, Docker, Istio, Kafka, Redis, etcd, MySQL</span>
                 </div>
                 <div class="skill-group">
-                    <span class="skill-label">可视化 & 工具</span>
-                    <span class="skill-items">Tableau, Matplotlib, Seaborn, Pyecharts, Git, Docker</span>
+                    <span class="skill-label">工具 & 运维</span>
+                    <span class="skill-items">Git, GitHub Actions, Prometheus, Grafana, Jaeger, Linux</span>
                 </div>
             </div>
         </aside>
