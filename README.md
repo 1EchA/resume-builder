@@ -1,40 +1,108 @@
-# Resume Builder
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.1-222?style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/license-MIT-222?style=flat-square" alt="license">
+  <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Codex%20%7C%20Cursor-222?style=flat-square" alt="platform">
+</p>
 
-构建 ATS 优化的极简 HTML 简历，通过 Playwright 导出为 A4 PDF。
+# 📄 Resume Builder
 
-## 目录
+> Build ATS-optimized, minimalist HTML resumes with pixel-perfect A4 PDF export.
+> **Archival Precision** — monochrome, every element earns its place.
 
-```
-resume-builder/
-├── SKILL.md              # 技能主指令（AI 加载入口）
-├── README.md             # 本文件
-├── references/
-│   ├── template.html     # 工作模板（CSS + HTML 合一）
-│   └── css-system.md     # CSS 设计系统参考文档
-└── scripts/
-    └── generate_pdf.py   # Playwright PDF 导出脚本
-```
+A Claude Code / Codex / Cursor skill that generates professional single-page or multi-page resumes from your raw experience data. Designed for ATS scanners, human recruiters, and monochrome printers alike.
 
-## 核心设计
+## ✨ What It Does
 
-- **单色极简**：`#222 / #666 / #999 / #E5E5E5`，无彩色 accent
-- **两栏布局**：Grid 默认（单页最优），溢出自动切 Float（第 2 页全宽）
-- **A4 精确**：`width: 210mm`，Playwright 渲染，打印 CSS 覆盖响应式断点
-- **字体**：Noto Serif SC（姓名）+ Noto Sans SC（正文）
+- 🎯 **ATS-optimized**: XYZ+S bullet formula, keyword weaving, structured layout
+- 🎨 **Minimalist design**: Pure monochrome (`#222` / `#666` / `#999`), Noto Serif SC + Noto Sans SC
+- 📐 **Precise A4**: `width: 210mm` container, Playwright headless browser rendering
+- 📄 **Single or multi-page**: Grid layout by default; auto-switches to float when content overflows to page 2
 
-## 使用方式
-
-Skill 由 AI agent 自动加载。手动运行时：
+## 🚀 Quick Start
 
 ```bash
-# 1. 生成简历 HTML（基于 template.html）
-# 2. 导出 PDF
+# Install as a skill (Claude Code / Codex compatible)
+# <path-to-skills>/resume-builder/
+
+# Dependencies (for PDF export)
 pip install playwright pypdf Pillow
 python -m playwright install chromium
+
+# Generate a PDF from any HTML resume
 python scripts/generate_pdf.py resume.html resume.pdf
 ```
 
-## 版本历史
+## 📁 Skill Structure
 
-- v1.1 — Float 多页支持（grid → overflow detection → float switch）
-- v1.0 — 初始版本：Grid 单页，Playwright PDF
+```
+resume-builder/
+├── SKILL.md              # Agent instructions (7-phase workflow)
+├── README.md
+├── references/
+│   ├── template.html     # Working template (CSS + HTML, 450 lines)
+│   └── css-system.md     # Design system reference (grid/float/print)
+└── scripts/
+    └── generate_pdf.py   # Playwright HTML → A4 PDF converter
+```
+
+## 🎨 Design System
+
+| Token | Value | Role |
+|-------|-------|------|
+| Text | `#222` | Primary content |
+| Secondary | `#666` | Subtitles, org names |
+| Muted | `#999` | Dates, metadata |
+| Border | `#E5E5E5` | Dividers |
+| Display font | `Noto Serif SC` | Name only |
+| Body font | `Noto Sans SC` | Everything else |
+
+> **Why monochrome?** Color adds noise for ATS parsers. Monochrome prints identically on any printer and signals deliberate restraint — not default AI template output.
+
+## 📐 Layout Modes
+
+### Single Page (Grid — default)
+```
+┌──────────────────────────┐
+│ Photo · Name · Contact   │
+├──────────────────┬───────┤
+│ Experiences      │ Edu   │
+│                  │ Skills│
+│                  │       │
+└──────────────────┴───────┘
+```
+
+### Multi Page (Float — auto-switch)
+```
+Page 1                      Page 2
+┌──────────────────┬───────┐ ┌──────────────────────┐
+│ Experiences      │ Side  │ │ Experiences (全宽)    │
+│                  │ bar   │ │                      │
+└──────────────────┴───────┘ └──────────────────────┘
+```
+
+## 💬 Usage Examples
+
+Once installed, the skill activates on any resume-related prompt:
+
+```
+"帮我做一份后端开发的简历，目标公司字节跳动"
+"Build a data engineer resume targeting FAANG"
+"更新我的实习经历，加上最近的项目"
+"Export my resume to PDF with Playwright"
+```
+
+The agent follows a 7-phase workflow: Content Strategy → Design Self-Audit → Build HTML → CSS → Print CSS → PDF Export → Iterate.
+
+## 🔧 Overflow Detection
+
+When content exceeds one page, the skill automatically:
+
+1. Detects page count via `pypdf.PdfReader`
+2. Switches CSS from Grid → Float (`margin-right` on main-col keeps columns clean)
+3. Reorders DOM (sidebar before main-col for float)
+4. Updates print CSS to remove grid overrides
+5. Regenerates PDF
+
+## 📄 License
+
+MIT
