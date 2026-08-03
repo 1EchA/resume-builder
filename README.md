@@ -1,8 +1,8 @@
 <div align="center">
   <sub>1EchA / AGENT SKILL</sub>
   <h1>Resume Builder</h1>
-  <p><strong>把零散经历，整理成一份能过 ATS、也经得起打印的简历。</strong></p>
-  <p>内容策略、职位关键词、A4 排版与 PDF 导出，在一条可复用的工作流里完成。</p>
+  <p><strong>根据目标岗位整理经历，生成可编辑的 HTML 简历和 A4 PDF。</strong></p>
+  <p>支持职位关键词提取、经历改写、单页压缩和多页排版。</p>
   <p>
     <a href="#30-秒开始"><strong>30 秒开始</strong></a>
     · <a href="examples/single-page.pdf">查看完整 PDF</a>
@@ -10,7 +10,7 @@
   </p>
 </div>
 
-![Resume Builder：把零散经历整理成 ATS 友好、适合打印的专业简历](assets/readme-hero.png)
+![Resume Builder：根据目标岗位整理经历并生成 HTML 简历和 A4 PDF](assets/readme-hero.png)
 
 页面默认使用黑白排版，信息层级主要由内容顺序、字号和间距建立。
 
