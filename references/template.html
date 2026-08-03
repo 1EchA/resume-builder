@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徐嘉 — Data Engineer / NLP Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════
+           简约风格简历 — Minimal & Clean
+           ═══════════════════════════════════════════ */
+
+        :root {
+            --white: #FFFFFF;
+            --bg: #FAFAFA;
+            --text: #222222;
+            --text-light: #666666;
+            --text-muted: #999999;
+            --border: #E5E5E5;
+            --accent: #333333;
+            --font-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 14.5px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-cn);
+            line-height: 1.7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* ─── 主容器 ─── */
+        .resume {
+            width: 210mm;
+            max-width: 100%;
+            min-height: 297mm;
+            background: var(--white);
+            padding: 48px 56px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        /* ═══════════════════════════════════════════
+           HEADER — 个人信息
+           ═══════════════════════════════════════════ */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .photo {
+            width: 110px;
+            height: 140px;
+            flex-shrink: 0;
+            margin-top: 12px;
+
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-info h1 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .header-info .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .contact-row a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-row a:hover {
+            color: var(--text);
+        }
+
+        .contact-row span.sep {
+            color: var(--border);
+        }
+
+        /* ═══════════════════════════════════════════
+           两栏布局（Grid 默认 — 单页最优）
+           ═══════════════════════════════════════════ */
+
+        /* --- GRID MODE (default, single-page) --- */
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 40px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* --- FLOAT MODE (multi-page switch) ---
+           When content overflows to page 2, replace the above with:
+           .body { }
+           .sidebar { float: right; width: 220px; margin-left: 40px; display: flex; flex-direction: column; gap: 28px; }
+           .main-col { }
+           Also move <aside class="sidebar"> BEFORE <section class="main-col"> in HTML.
+           This makes page 2+ render full-width without the sidebar.
+        */
+
+        /* ─── 区块标题 ─── */
+        .section-title {
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--text);
+            display: inline-block;
+            text-wrap: balance;
+        }
+
+        /* ═══════════════════════════════════════════
+           左栏 — 经历
+           ═══════════════════════════════════════════ */
+        .exp-item { margin-bottom: 24px; }
+        .exp-item:last-child { margin-bottom: 0; }
+
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+            gap: 12px;
+        }
+
+        .exp-title { font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+        .exp-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+        .exp-org { font-size: 0.85rem; color: var(--text-light); margin-bottom: 6px; }
+
+        .exp-bullets { list-style: none; margin-top: 6px; }
+        .exp-bullets li {
+            position: relative;
+            padding-left: 14px;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.65;
+            margin-bottom: 4px;
+        }
+        .exp-bullets li::before {
+            content: '·';
+            position: absolute;
+            left: 2px;
+            top: 0;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        .exp-bullets strong { font-weight: 600; }
+        .metric { font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+
+        /* ═══════════════════════════════════════════
+           右栏 — 教育 / 技能
+           ═══════════════════════════════════════════ */
+        .edu-school { font-size: 0.92rem; font-weight: 600; display: block; line-height: 1.4; }
+        .edu-major { font-size: 0.82rem; color: var(--text-light); display: block; }
+        .edu-period { font-size: 0.78rem; color: var(--text-muted); display: block; margin-top: 2px; font-variant-numeric: tabular-nums; }
+
+        .skill-group { margin-bottom: 10px; }
+        .skill-group:last-child { margin-bottom: 0; }
+        .skill-label { font-size: 0.82rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 1px; }
+        .skill-items { display: block; font-size: 0.8rem; color: var(--text-light); line-height: 1.55; }
+
+        /* ═══════════════════════════════════════════
+           响应式
+           ═══════════════════════════════════════════ */
+        @media (max-width: 720px) {
+            .resume { padding: 32px 24px; }
+            .header { flex-direction: column; align-items: center; text-align: center; }
+            .contact-row { justify-content: center; }
+            .body { grid-template-columns: 1fr; gap: 28px; }
+            .sidebar { order: -1; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+            .sidebar > div { flex: 1; min-width: 140px; }
+        }
+
+        /* ═══════════════════════════════════════════
+           打印
+           ═══════════════════════════════════════════ */
+        @media print {
+            @page {
+                size: A4;
+                margin: 9mm 8mm;
+            }
+            html { font-size: 12.8px; }
+            body { background: white !important; padding: 0 !important; margin: 0 !important; }
+            .resume {
+                box-shadow: none !important;
+                padding: 24px 28px !important;
+                width: 210mm !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+            }
+            /* Override responsive breakpoint (720px) */
+            .header {
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                gap: 34px !important;
+                padding-bottom: 16px !important;
+                margin-bottom: 18px !important;
+            }
+            .contact-row { justify-content: flex-start !important; }
+            .photo {
+                width: 116px !important;
+                height: 146px !important;
+                margin-top: 0 !important;
+            }
+            .header-info h1 { font-size: 2rem !important; }
+            .header-info .subtitle {
+                font-size: 0.9rem !important;
+                margin-bottom: 12px !important;
+            }
+            .contact-row { font-size: 0.85rem !important; }
+            .header-info > div:last-child {
+                font-size: 0.86rem !important;
+                line-height: 1.64 !important;
+            }
+            .body {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) 200px !important;
+                gap: 24px !important;
+                align-items: start !important;
+            }
+            .sidebar {
+                order: 0 !important;
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+                gap: 18px !important;
+            }
+            .sidebar > div {
+                min-width: unset !important;
+                flex: unset !important;
+            }
+            .section-title {
+                font-size: 0.83rem !important;
+                margin-bottom: 11px;
+                padding-bottom: 6px;
+            }
+            .exp-item {
+                margin-bottom: 13px;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .exp-title { font-size: 1.01rem !important; }
+            .exp-date { font-size: 0.79rem !important; }
+            .exp-org {
+                font-size: 0.85rem !important;
+                margin-bottom: 6px !important;
+            }
+            .exp-bullets { margin-top: 6px !important; }
+            .exp-bullets li {
+                font-size: 0.89rem !important;
+                margin-bottom: 3px;
+                line-height: 1.5;
+            }
+            .edu-school { font-size: 0.93rem !important; }
+            .edu-major { font-size: 0.82rem !important; }
+            .edu-period { font-size: 0.79rem !important; }
+            .skill-group { margin-bottom: 6px; }
+            .skill-label { font-size: 0.82rem !important; }
+            .skill-items {
+                font-size: 0.8rem !important;
+                line-height: 1.56 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="photo">
+            <img src="照片.jpg" alt="徐嘉">
+        </div>
+        <div class="header-info">
+            <h1>徐 嘉</h1>
+            <div class="subtitle">数据工程 · NLP 研究</div>
+            <div class="contact-row">
+                <span>156 1104 2157</span>
+                <span class="sep">|</span>
+                <a href="mailto:pingtianhechuan@gmail.com">pingtianhechuan@gmail.com</a>
+                <span class="sep">|</span>
+                <a href="https://github.com/1EchA" target="_blank">github.com/1EchA</a>
+            </div>
+            <div style="margin-top:14px; font-size:0.86rem; color:var(--text-light); line-height:1.65;">数据科学与大数据技术本科在读。具备百万级数据入库、清洗与治理的全流程实习经验，熟练使用 Python、SQL 与 PostgreSQL。以第一作者身份主导 NLP 学术论文，独立运营 GitHub 开源项目 300+ Stars。</div>
+        </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="body">
+
+        <!-- 左栏：经历 -->
+        <section class="main-col">
+            <div class="section-title">实习 & 研究经历</div>
+
+            <div class="exp-item">
+                <div class="exp-head">
+                    <span class="exp-title">数据工程师实习生</span>
+                    <span class="exp-date">2025.12 — 2026.02</span>
+                </div>
+                <div class="exp-org">中国标准化研究院 · 人工智能标准化研究所</div>
+                <ul class="exp-bullets">
+                    <li><strong>数据清洗与标准号治理</strong>：基于 PostgreSQL 与 DBeaver 编写多层正则清洗脚本，对标准号、起草单位等关键字段进行规范化处理，覆盖 OCR 噪声过滤、实体提取、分隔符归一与去重，显著降低脏数据率</li>
+                    <li><strong>数据入库与关联匹配</strong>：基于清洗后的标准号独立完成 <span class="metric">160 万+</span> 条外部数据的入库，涵盖多语言标准正文与修改单导入，完成文件去重与存量校验，有效提升关联匹配成功率与数据覆盖率</li>
+                    <li><strong>支撑 AI 预训练</strong>：产出的高质量结构化数据直接服务于内部生成式 AI 预训练与"标准知识图谱"构建</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-head">
+                    <span class="exp-title">TARR: 免训练中文拼写纠错框架</span>
+                    <span class="exp-date">2025.10 — 至今</span>
+                </div>
+                <div class="exp-org">第一作者 · 即将投递</div>
+                <ul class="exp-bullets">
+                    <li><strong>研发免训练中文纠错框架</strong>：提出 TARR 两阶段架构（确定性候选生成 + 类型感知可靠性重排），实现无需训练、无需提示词的端到端中文拼写纠错</li>
+                    <li><strong>多领域基准全面领先</strong>：在 SIGHAN15、LEMON、ECSpell、CSCD-NS、MCSCSet 等 <span class="metric">5 个</span>跨领域基准数据集上显著提升 F1 且维持极低误报率</li>
+                    <li><strong>工程级推理加速</strong>：设计缓存加速方案，在纠错质量无损前提下实现推理端 <span class="metric">20x+</span> 延迟降低</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-head">
+                    <span class="exp-title"><a href="https://github.com/1EchA/Predicting-medals" target="_blank" style="color:inherit;text-decoration:none;">GBRT 奥运奖牌数预测与归因分析</a></span>
+                    <span class="exp-date">2025.02 — 2025.03</span>
+                </div>
+                <div class="exp-org">数据建模 · 个人项目</div>
+                <ul class="exp-bullets">
+                    <li><strong>奖牌数预测建模</strong>：基于历届奥运历史数据构建 GBRT 模型预测 2028 洛杉矶奥运会各国奖牌数，测试集 R² = 0.98，交叉验证稳健</li>
+                    <li><strong>关键因子归因分析</strong>：发现东道主效应与历史动量为最强预测因子，性别均衡度与现代奖牌表现正相关，并通过可视化报告呈现完整归因结果</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-head">
+                    <span class="exp-title"><a href="https://github.com/1EchA/GAI-in-social-science" target="_blank" style="color:inherit;text-decoration:none;">AI × 社会科学文献趋势分析综述</a></span>
+                    <span class="exp-date">2024.09 — 2025.01</span>
+                </div>
+                <div class="exp-org">数据分析 · 个人项目</div>
+                <ul class="exp-bullets">
+                    <li><strong>大规模文献数据挖掘</strong>：基于 Web of Science 核心库 <span class="metric">7011</span> 条文献数据，使用 LDA 主题建模提取 7 大核心研究主题，重构 AI 与社会科学的融合图谱</li>
+                    <li><strong>多维可视化分析</strong>：综合运用 DataMapPlot、Voronoi Treemap、Parallel Tag Clouds 等工具，呈现主题聚类密度、学科权重分布与时间演化路径</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <div class="exp-head">
+                    <span class="exp-title"><a href="https://github.com/1EchA/how-to-vibecoding" target="_blank" style="color:inherit;text-decoration:none;">how-to-vibecoding 开源教程</a></span>
+                    <span class="exp-date">300+ ★ · 25+ Forks</span>
+                </div>
+                <div class="exp-org">独立开源项目 · GitHub</div>
+                <ul class="exp-bullets">
+                    <li><strong>构建全链路教程体系</strong>：独立撰写“基础篇 + 进阶篇（三篇）+ 精选工具推荐篇”共 5 篇系统教程，覆盖 MCP、Skills、Agent 分工治理等 AI 编程核心生态</li>
+                    <li><strong>开源社区影响力</strong>：面向 AI 编程入门进阶场景，GitHub 快速积累 <span class="metric">300+ Stars / 25+ Forks</span></li>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <!-- 右栏：教育 + 技能 -->
+        <aside class="sidebar">
+            <div>
+                <div class="section-title">教育背景</div>
+                <span class="edu-school">中国传媒大学</span>
+                <span class="edu-major">数据科学与大数据技术</span>
+                <span class="edu-period">2023.09 — 2027</span>
+                <span class="edu-period" style="margin-top:6px">CET-4 / CET-6 通过</span>
+            </div>
+
+            <div>
+                <div class="section-title">核心课程</div>
+                <span class="skill-items">Python、C/C++、数据结构与算法、概率统计、数据库原理、机器学习、数据建模、回归分析</span>
+            </div>
+
+            <div>
+                <div class="section-title">技术栈</div>
+                <div class="skill-group">
+                    <span class="skill-label">数据工程</span>
+                    <span class="skill-items">Python, Pandas, NumPy, PostgreSQL, DBeaver, Regex, Excel, ETL</span>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-label">算法 & LLM</span>
+                    <span class="skill-items">NLP, Ensemble Learning, GBRT, LDA, TF-IDF, Prompt Engineering, Scikit‑learn</span>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-label">可视化 & 工具</span>
+                    <span class="skill-items">Tableau, Matplotlib, Seaborn, Pyecharts, Git, Docker</span>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+</div>
+
+</body>
+</html>
