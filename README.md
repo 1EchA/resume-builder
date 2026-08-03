@@ -77,21 +77,11 @@ resume-builder/
 └──────────────────┴───────┘
 ```
 
-### 多页（Float — 自动切换）
-```
-第 1 页                       第 2 页
-┌──────────────────┬───────┐ ┌──────────────────────┐
-│ 经历              │ 侧栏  │ │ 经历（全宽）          │
-└──────────────────┴───────┘ └──────────────────────┘
-```
-
 ## 📸 样例预览
 
-| 单页版 | 多页版 |
-|--------|--------|
-| [![single-page](examples/single-page-preview.png)](examples/single-page.pdf) | [![multi-page](examples/multi-page-preview.png)](examples/multi-page.pdf) |
-| 5 段经历 · Grid 两栏 | 7 段经历 · Float 切换 |
-| [📥 下载 PDF](examples/single-page.pdf) | [📥 下载 PDF](examples/multi-page.pdf) |
+[![preview](examples/single-page-preview.png)](examples/single-page.pdf)
+
+> 虚构人物"陈思远" · 后端开发方向 · 5 段经历 · Grid 两栏布局 · [📥 下载 PDF](examples/single-page.pdf)
 
 ## 💬 使用示例
 
@@ -157,7 +147,7 @@ resume-builder/
 ├── README.md
 ├── examples/             # Sample outputs
 │   ├── single-page.pdf   # Single-page (Grid layout)
-│   └── multi-page.pdf    # Multi-page (Float switch)
+│   └── single-page.pdf   # Grid layout preview
 ├── references/
 │   ├── template.html     # Working template (CSS + HTML)
 │   └── css-system.md     # Design system reference
@@ -190,22 +180,11 @@ resume-builder/
 └──────────────────┴───────┘
 ```
 
-### Multi Page (Float — auto-switch)
-```
-Page 1                       Page 2
-┌──────────────────┬───────┐ ┌──────────────────────┐
-│ Experiences      │ Side  │ │ Experiences (full)    │
-│                  │ bar   │ │                      │
-└──────────────────┴───────┘ └──────────────────────┘
-```
+## 📸 Sample Preview
 
-## 📸 Sample Previews
+[![preview](examples/single-page-preview.png)](examples/single-page.pdf)
 
-| Single Page | Multi Page |
-|-------------|------------|
-| [![single-page](examples/single-page-preview.png)](examples/single-page.pdf) | [![multi-page](examples/multi-page-preview.png)](examples/multi-page.pdf) |
-| 5 entries · Grid two-column | 7 entries · Float switch |
-| [📥 Download PDF](examples/single-page.pdf) | [📥 Download PDF](examples/multi-page.pdf) |
+> Fictional "陈思远" · Backend Engineer · 5 entries · Grid two-column · [📥 Download PDF](examples/single-page.pdf)
 
 ## 💬 Usage
 
