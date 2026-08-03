@@ -1,101 +1,92 @@
 <div align="center">
   <sub>1EchA / AGENT SKILL</sub>
   <h1>Resume Builder</h1>
-  <p><strong>根据目标岗位整理经历，生成可编辑的 HTML 简历和 A4 PDF。</strong></p>
-  <p>支持职位关键词提取、经历改写、单页压缩和多页排版。</p>
+  <p><strong>用于整理简历内容并导出 A4 PDF 的 Agent Skill。</strong></p>
+  <p>输入旧简历、职位描述和项目材料；输出可编辑的 HTML 与 PDF。</p>
   <p>
-    <a href="#30-秒开始"><strong>30 秒开始</strong></a>
-    · <a href="examples/single-page.pdf">查看完整 PDF</a>
+    <a href="#安装"><strong>安装</strong></a>
+    · <a href="examples/single-page.pdf">查看样例 PDF</a>
     · <a href="SKILL.md">阅读 Skill</a>
   </p>
 </div>
 
-![Resume Builder：根据目标岗位整理经历并生成 HTML 简历和 A4 PDF](assets/readme-hero-v2.png)
+![Resume Builder 单页简历样例](assets/readme-hero-v3.png)
 
-页面默认使用黑白排版，信息层级主要由内容顺序、字号和间距建立。
+仓库包含 Skill 指令、HTML/CSS 模板、PDF 导出脚本和一份单页样例。
 
 ## 单页样例
 
-下面这份简历使用虚构数据。可以重点看三处：经历是否说清了动作和结果，信息能不能快速扫读，以及导出后是否仍然稳稳落在一张 A4 里。
+样例使用虚构数据，展示经历条目改写、两栏排版和 A4 页面控制。
 
 <p align="center">
   <a href="examples/single-page.pdf">
-    <img src="examples/single-page-preview.png" alt="Resume Builder 生成的单页简历样例" width="620">
+    <img src="examples/single-page-preview.png" alt="Resume Builder 单页简历样例" width="620">
   </a>
 </p>
 
-<p align="center"><sub>点击图片查看完整 PDF · 样例数据均为虚构</sub></p>
+<p align="center"><sub>点击图片查看 PDF · 样例数据均为虚构</sub></p>
 
-## 做简历最容易卡住的三件事
+## 主要功能
 
-### 材料很多，不知道该留什么
+- **材料筛选**：对照目标岗位，从旧简历、成绩单和项目资料中选择相关内容。
+- **经历改写**：每条经历尽量写清动作、方法、结果和规模；缺少依据的数据不会补写。
+- **版面控制**：支持单页压缩和多页排版，内容溢出时调整栏布局。
+- **PDF 导出**：使用 Playwright 输出 A4 PDF，并检查最终页数。
 
-旧简历、JD、成绩单和项目资料通常各说各话。Resume Builder 会先对照目标岗位做取舍：无关的删掉，重要的提前，证据不足的先标出来。
-
-### 经历写了不少，读起来还是像岗位职责
-
-每条经历会按动作、方法、结果和规模重新整理；没有依据的数字不会补写。
-
-### 屏幕上刚好，导出 PDF 就跑版
-
-内容定下来以后，再处理两栏、字号和分页。单页尽量收紧，多页则让后续页面恢复全宽，最后用 Playwright 导出可打印的 A4 PDF。
-
-## 30 秒开始
-
-把仓库克隆到你的 Skill 目录，或让 Agent 直接读取 [`SKILL.md`](SKILL.md)：
+## 安装
 
 ```bash
 git clone https://github.com/1EchA/resume-builder.git
 ```
 
-然后直接描述目标，不需要先整理成标准格式：
-
-```text
-帮我做一份后端开发简历，目标岗位是字节跳动基础架构。
-我有旧简历、成绩单和三个 GitHub 项目，请先帮我筛选内容。
-把这份简历压到一页，并导出成 PDF。
-```
-
-只有在需要导出 PDF 时，才安装渲染依赖：
+如果需要导出 PDF，再安装渲染依赖：
 
 ```bash
 pip install playwright pypdf Pillow
 python -m playwright install chromium
+```
+
+## 使用示例
+
+可以附上现有材料，并说明目标岗位、页数和输出格式：
+
+```text
+帮我做一份后端开发简历，目标岗位是字节跳动基础架构。
+我有旧简历、成绩单和三个 GitHub 项目，请先帮我筛选内容。
+把简历控制在一页，并导出 PDF。
+```
+
+单独运行导出脚本：
+
+```bash
 python scripts/generate_pdf.py resume.html resume.pdf
 ```
 
-## 处理顺序
+## 处理步骤
 
 ```text
-目标岗位
+读取目标岗位和现有材料
    ↓
-经历与关键词整理
+筛选经历与关键词
    ↓
-XYZ+S bullet 重写
+改写经历条目
    ↓
-HTML / CSS 排版
+生成 HTML / CSS
    ↓
-A4 PDF 渲染
+导出 A4 PDF
    ↓
-页数检测与布局迭代
+检查页数并调整布局
 ```
 
-### 内容整理
+## 排版规则
 
-- 从 JD 中提取硬技能，并自然写进 Summary 与经历。
-- 每段经历保留 2–3 个高信息密度 bullet，按工作逻辑排序。
-- 从成绩单、项目和论文中筛选与目标岗位真正相关的内容。
-- 重要数字使用受控强调，不靠彩色标签制造重点。
-
-### A4 排版与 PDF 导出
-
-- 精确的 `210mm` A4 容器与独立打印样式。
-- `Noto Serif SC` 只用于姓名，`Noto Sans SC` 负责正文。
-- 默认两栏 Grid；内容溢出时切换 Float，让第二页恢复全宽。
-- 通过 Playwright 导出，避免浏览器打印产生页眉、页脚和布局偏移。
+- 页面尺寸为 `210mm × 297mm`，屏幕样式和打印样式分开设置。
+- 姓名使用 `Noto Serif SC`，正文使用 `Noto Sans SC`。
+- 默认采用两栏 Grid；多页内容可切换 Float，使后续页面恢复全宽。
+- 黑白配色，重点通过字号、字重、间距和内容顺序区分。
 
 <details>
-<summary><strong>设计系统</strong></summary>
+<summary><strong>样式参数</strong></summary>
 
 | Token | 值 | 用途 |
 |---|---|---|
@@ -106,12 +97,10 @@ A4 PDF 渲染
 | Display | `Noto Serif SC` | 姓名 |
 | Body | `Noto Sans SC` | 其余内容 |
 
-这里使用纯单色，以保证打印效果稳定，并减少不必要的视觉干扰。
-
 </details>
 
 <details>
-<summary><strong>目录与实现细节</strong></summary>
+<summary><strong>项目结构</strong></summary>
 
 ```text
 resume-builder/
@@ -126,15 +115,15 @@ resume-builder/
     └── generate_pdf.py
 ```
 
-- [`references/template.html`](references/template.html)：可直接工作的 HTML/CSS 起点。
-- [`references/css-system.md`](references/css-system.md)：Grid、Float 与打印样式说明。
-- [`scripts/generate_pdf.py`](scripts/generate_pdf.py)：Playwright HTML → A4 PDF。
+- [`references/template.html`](references/template.html)：HTML/CSS 模板。
+- [`references/css-system.md`](references/css-system.md)：Grid、Float 和打印样式说明。
+- [`scripts/generate_pdf.py`](scripts/generate_pdf.py)：将 HTML 导出为 A4 PDF。
 
 </details>
 
 ## 兼容方式
 
-适用于能够加载 Markdown Skill 指令的 Agent 环境，例如 Claude Code、Codex 与 Cursor。具体安装目录由你的 Agent 环境决定；仓库本身不绑定某个平台 API。
+适用于能够加载 Markdown Skill 指令的 Agent 环境，包括 Claude Code、Codex 和 Cursor。安装目录由具体环境决定。
 
 ## License
 
