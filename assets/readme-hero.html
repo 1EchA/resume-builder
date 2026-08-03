@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume Builder — README Hero</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1600px; height: 900px; margin: 0; overflow: hidden; }
+    body {
+      color: #1f1f1d;
+      background: #e9e7e1;
+      font-family: "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .canvas {
+      position: relative;
+      width: 1600px;
+      height: 900px;
+      display: grid;
+      grid-template-columns: 46% 54%;
+      isolation: isolate;
+    }
+    .canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .42;
+      background-image:
+        linear-gradient(rgba(31,31,29,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31,31,29,.07) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(90deg, #000 0 47%, transparent 72%);
+    }
+    .copy {
+      padding: 84px 42px 72px 92px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font: 600 17px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 48px; height: 2px; background: #1f1f1d; }
+    h1 {
+      margin: 104px 0 20px;
+      max-width: 620px;
+      font-family: Georgia, "Noto Serif CJK SC", serif;
+      font-size: 108px;
+      font-weight: 500;
+      line-height: .88;
+      letter-spacing: -.055em;
+    }
+    .promise {
+      margin: 20px 0 0;
+      max-width: 530px;
+      font-size: 31px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: -.02em;
+    }
+    .sub {
+      margin: 20px 0 0;
+      max-width: 520px;
+      color: #5f5e59;
+      font-size: 19px;
+      line-height: 1.65;
+    }
+    .meta {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .meta span {
+      padding: 9px 13px;
+      border: 1px solid rgba(31,31,29,.28);
+      background: rgba(233,231,225,.72);
+      font: 600 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .04em;
+    }
+    .preview {
+      position: relative;
+      overflow: hidden;
+      background: #d5d2cb;
+      border-left: 1px solid rgba(31,31,29,.18);
+    }
+    .paper {
+      position: absolute;
+      width: 678px;
+      height: auto;
+      left: 92px;
+      top: 55px;
+      display: block;
+      background: white;
+      box-shadow: 0 32px 90px rgba(31,31,29,.22);
+      transform: rotate(1.2deg);
+      transform-origin: 50% 50%;
+    }
+    .index {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      writing-mode: vertical-rl;
+      color: rgba(31,31,29,.52);
+      font: 500 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em;
+    }
+    .caption {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+      padding: 12px 15px;
+      color: #f5f4ef;
+      background: #1f1f1d;
+      font: 500 14px/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="copy">
+      <div class="eyebrow">1EchA / Agent Skill</div>
+      <h1>Resume<br>Builder</h1>
+      <p class="promise">把零散经历，整理成一份能过 ATS、也经得起打印的简历。</p>
+      <p class="sub">内容策略、职位关键词、A4 排版与 PDF 导出，在一条可复用的工作流里完成。</p>
+      <div class="meta">
+        <span>ATS-READY</span><span>A4 PDF</span><span>MONOCHROME</span>
+      </div>
+    </section>
+    <section class="preview">
+      <img class="paper" src="../examples/single-page-preview.png" alt="真实生成的单页简历样例">
+      <div class="index">ARCHIVAL PRECISION · 01</div>
+      <div class="caption">REAL OUTPUT / SINGLE PAGE</div>
+    </section>
+  </main>
+</body>
+</html>
