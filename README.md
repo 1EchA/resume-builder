@@ -77,11 +77,30 @@ resume-builder/
 └──────────────────┴───────┘
 ```
 
-## 📸 样例预览
+## 📸 样例展示
 
-[![preview](examples/single-page-preview.png)](examples/single-page.pdf)
+<p align="center">
+  <a href="examples/single-page.pdf"><strong>📥 下载完整 PDF</strong></a>
+</p>
 
-> 虚构人物"陈思远" · 后端开发方向 · 5 段经历 · Grid 两栏布局 · [📥 下载 PDF](examples/single-page.pdf)
+<p align="center">
+  <img src="examples/single-page-preview.png" alt="简历样例" width="600">
+</p>
+
+<details open>
+<summary><strong>📋 这份样例展示了什么？</strong></summary>
+
+| 区域 | 展示内容 |
+|------|----------|
+| **头部** | AI 生成形象照 + Serif 姓名 + 联系方式 + 个人综述 |
+| **左栏** | 5 段实习/项目经历，XYZ+S 子弹公式，数字指标高亮（`<span class="metric">`） |
+| **右栏** | 教育背景、核心课程、技术栈三组分类 |
+| **排版** | 纯单色 `#222/#666/#999`，`tabular-nums` 等宽数字，`text-wrap: balance` 标题 |
+| **打印** | `width: 210mm` 精确 A4 容器，Playwright 无头浏览器渲染 |
+
+</details>
+
+> 样例内容为虚构数据："陈思远" · 华中科技大学软件工程 · 字节跳动/阿里云实习 · 开源项目 DTask/LogStream/RaftKV
 
 ## 💬 使用示例
 
@@ -182,9 +201,28 @@ resume-builder/
 
 ## 📸 Sample Preview
 
-[![preview](examples/single-page-preview.png)](examples/single-page.pdf)
+<p align="center">
+  <a href="examples/single-page.pdf"><strong>📥 Download Full PDF</strong></a>
+</p>
 
-> Fictional "陈思远" · Backend Engineer · 5 entries · Grid two-column · [📥 Download PDF](examples/single-page.pdf)
+<p align="center">
+  <img src="examples/single-page-preview.png" alt="Resume sample" width="600">
+</p>
+
+<details open>
+<summary><strong>📋 What this sample demonstrates</strong></summary>
+
+| Section | Content |
+|---------|---------|
+| **Header** | AI-generated portrait + Serif name + contact row + professional summary |
+| **Left column** | 5 internship/project entries, XYZ+S bullet formula, metric highlighting (`<span class="metric">`) |
+| **Right column** | Education, core courses, tech stack (3 categorized groups) |
+| **Typography** | Pure monochrome `#222/#666/#999`, `tabular-nums` for numbers, `text-wrap: balance` on headings |
+| **Print** | `width: 210mm` precise A4 container, Playwright headless browser rendering |
+
+</details>
+
+> Fictional data: "陈思远" · Huazhong University · ByteDance/Alibaba internships · Open-source projects DTask/LogStream/RaftKV
 
 ## 💬 Usage
 
