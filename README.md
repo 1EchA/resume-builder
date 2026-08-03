@@ -10,7 +10,7 @@
   </p>
 </div>
 
-![Resume Builder：根据目标岗位整理经历并生成 HTML 简历和 A4 PDF](assets/readme-hero.png)
+![Resume Builder：根据目标岗位整理经历并生成 HTML 简历和 A4 PDF](assets/readme-hero-v2.png)
 
 页面默认使用黑白排版，信息层级主要由内容顺序、字号和间距建立。
 
